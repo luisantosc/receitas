@@ -1,0 +1,55 @@
+*:not(.titulo){
+	font-family: 'Quicksand', sans-serif;
+}
+.titulo{
+	font-family: 'Modak', cursive;
+	font-size: 5em;
+	text-align: center;
+	margin:0;
+}
+body{
+	background: url("../img/mesa.jpg") ,no-repeat ,100%;
+	background-attachment: fixed;
+}
+.receita{
+	width: 900px;
+	height: 100%;
+	padding-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 5px 5px 5px #cdcdcd; 
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+.fig{
+	width: 600px;
+	position: relative;
+	left:150px;
+}
+h1{
+	color:#CD0000;
+	text-align: center;
+	position: relative;
+	top: 10px;
+	margin-bottom: 20px;
+	font-size:3em;
+}
+.titulo-ingredientes,.titulo-preparo,.titulo-descricao{
+	font-weight: bold;
+	font-size: 2em;
+	position: relative;
+	left:60px;
+	margin-bottom: 20px;
+}
+.ingredientes,.preparo{
+	width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.ingredientes:hover,.preparo:hover{
+	background-color: rgba(156,156,156,0.8);
+	transition: 1s;
+	transform: scale(2);
+}
+.descricao{
+	text-align: center;
+}

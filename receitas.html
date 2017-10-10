@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Modak|Quicksand" rel="stylesheet">
+	<script src="./Js/jquery.min.js"></script>
+	<script>
+		$(function(){
+				var servico = "http://botanicapp.com.br/receitas_teste.php";
+				var $xhr = $.get(servico);
+				
+				$xhr.done(function(data){
+				var receitaArray = JSON.parse(data);
+					$.each(receitaArray,function(i,obj){
+					var $ol = $("<ol/>");
+					var $ul = $("<ul/>");
+						$.each(obj.preparo,function(i,pre){
+								$ol.append($("<li/>")
+										.text(pre)
+								)
+								
+						});
+						$ol.addClass("preparo");
+						$.each(obj.ingredientes,function(i,ingre){
+								$ul.append($("<li/>")
+										.text(ingre)
+								)
+								
+						});
+						$ul.addClass("ingredientes");
+						$("#caixa")
+							.append($("<div/>")
+								.addClass("receita")
+								.append($("<h1/>")
+									.text(obj.nome)
+								)
+								.append($("<img/>")
+									.attr("src",obj.foto)
+									.addClass("fig")
+								)
+								.append($("<p/>")
+									.text("Descrição")
+									.addClass("titulo-descricao")
+								)
+								.append($("<p/>")
+									.text(obj.descricao)
+									.addClass("descricao")
+								)
+								.append($("<p/>")
+										.text("Preparo:")
+										.addClass("titulo-preparo")
+								)
+								.append($ol)
+								
+								.append($("<p/>")
+										.text("Ingredientes:")
+										.addClass("titulo-ingredientes")
+								)
+								.append($ul)
+							)
+							
+						});
+					
+
+				});
+			})
+			
+	</script>
+</head>
+<body>
+	<p class="titulo">Receitas</p>
+	<div id="caixa">
+	</div>
+</body>
+</html>
